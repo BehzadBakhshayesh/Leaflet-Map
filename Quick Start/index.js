@@ -46,3 +46,10 @@ MAP.on("click", (e) => {
     .setContent(`lat: ${e.latlng.lat.toString()} <br> lng: ${e.latlng.lng}`)
     .openOn(MAP);
 });
+
+circle.on("click", (e) => {
+  LEAFLET.popup()
+    .setLatLng([e.latlng.lat, e.latlng.lng])
+    .setContent(`lat: ${e.latlng.lat.toString()} <br> lng: ${e.latlng.lng}`)
+    .openOn(MAP);
+});
