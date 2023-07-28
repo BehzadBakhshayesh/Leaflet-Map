@@ -24,3 +24,7 @@ let circle = LEAFLET.circle([35.6997, 51.3379], {
   fillOpacity: 0.3, // background Opacity
   radius: 500, // شعاع
 }).addTo(MAP);
+
+//+++++++++++++++++++++++++++++++++++++++ Popup
+marker.bindPopup("<b>برج</b><br> آزادی").openPopup();
+circle.bindPopup("میدان آزادی");
