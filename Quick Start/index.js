@@ -28,3 +28,21 @@ let circle = LEAFLET.circle([35.6997, 51.3379], {
 //+++++++++++++++++++++++++++++++++++++++ Popup
 marker.bindPopup("<b>برج</b><br> آزادی").openPopup();
 circle.bindPopup("میدان آزادی");
+
+let popup = LEAFLET.popup()
+  .setLatLng([35.6997, 51.3379])
+  .setContent("I am a standalone popup.")
+  .openOn(MAP);
+
+//+++++++++++++++++++++++++++++++++++++++ EVENT
+
+MAP.on("click", (e) => {
+  console.log({ e });
+});
+
+MAP.on("click", (e) => {
+  LEAFLET.popup()
+    .setLatLng([e.latlng.lat, e.latlng.lng])
+    .setContent(`lat: ${e.latlng.lat.toString()} <br> lng: ${e.latlng.lng}`)
+    .openOn(MAP);
+});
