@@ -32,10 +32,3 @@ MAP.on("locationfound", (e) => {
 MAP.on("locationerror", (e) => {
   alert(e.message);
 });
-
-// LEAFLET.circle(e.latlng, {
-//   color: "#18edb4", // border color
-//   fillColor: "#18edb4", // background color
-//   fillOpacity: 0.3, // background Opacity
-//   radius: 500, // شعاع
-// }).addTo(MAP);
