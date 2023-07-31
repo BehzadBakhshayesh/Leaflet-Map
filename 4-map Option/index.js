@@ -9,7 +9,8 @@ let mapOption = {
 
 let map = L.map("root", mapOption);
 
-map.on("click", (e) => {
-  console.log({ e });
-});
 ////+++++++++++++++++++++++++++++++++++++++
+
+map.on("click", (e) => {
+  L.marker(e.latlng).addTo(map);
+});
