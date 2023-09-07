@@ -1,7 +1,6 @@
 let mapOption = {
   center: L.latLng(35.699444, 51.337776),
-  zoom: 16,
-  zoomControl: false,
+  zoom: 15,
   maxZoom: 19,
   attribution: "behhhzaadddd",
   layers: [L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png")],
@@ -13,9 +12,8 @@ const button = document.getElementById("button");
 
 button.addEventListener("click", () => {
   const inputValue = document.getElementById("input").value;
-  console.log({ inputValue });
-  navigator.geolocation.getCurrentPosition(
-    (res) => {
+  if (navigator.geolocation) {
+    const onSuccess = (res) => {
       const CurrentPosition = [res.coords.latitude, res.coords.longitude];
 
       map.setView(CurrentPosition, 16);
@@ -30,16 +28,23 @@ button.addEventListener("click", () => {
       L.circle(CurrentPosition, {
         color: "red",
         fillColor: "red",
-        fillOpacity: 1,
-        radius: 10,
+        fillOpacity: 0.9,
+        radius: 8,
       }).addTo(map);
 
       L.popup(CurrentPosition, {
         content: "<p>موقعییت کنونی.</p>",
       }).openOn(map);
-    },
-    (err) => {
+    };
+
+    const onFailed = (err) => {
       console.log({ err });
-    }
-  );
+    };
+
+    const options = { timeout: 10000, enableHighAccuracy: true };
+
+    navigator.geolocation.getCurrentPosition(onSuccess, onFailed, options);
+  } else {
+    console.log("err message");
+  }
 });
