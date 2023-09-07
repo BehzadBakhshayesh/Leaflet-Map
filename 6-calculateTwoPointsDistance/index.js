@@ -17,10 +17,12 @@ map.on("click", (e) => {
     b = e.latlng;
     L.marker(b).addTo(map);
 
-    console.log(
-      Math.sqrt(Math.abs(a.lat - b.lat) ** 2 + Math.abs(a.lng - b.lng) ** 2) *
-        10 ** 5
-    );
+    console.log({
+      d1:
+        Math.sqrt(Math.abs(a.lat - b.lat) ** 2 + Math.abs(a.lng - b.lng) ** 2) *
+        10 ** 5,
+      d2: Math.hypot(a.lat - b.lat, a.lng - b.lng) * 10 ** 5,
+    });
   } else {
     return;
   }
