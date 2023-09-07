@@ -44,10 +44,10 @@ const tileLayerList = {
 
 let mapOption = {
   center: L.latLng(35.699444, 51.337776),
+  zoom: 16,
   maxZoom: 17,
-  ext: "png",
   attribution: "behhhzaadddd",
-  layers: [L.tileLayer(tileLayerList[4])],
+  layers: [L.tileLayer(tileLayerList[5])],
 };
 
 let map = L.map("root", mapOption);
