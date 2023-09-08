@@ -11,7 +11,7 @@ let map = L.map("root", mapOption);
 navigator.geolocation.getCurrentPosition(({ coords }) => {
   console.log("1", coords);
   const CurrentPosition = [coords.latitude, coords.longitude];
-  map.setView(CurrentPosition, 16);
+  map.setView(CurrentPosition, 17);
   L.popup(CurrentPosition, {
     content: "<p>موقعییت کنونی.</p>",
   }).openOn(map);
